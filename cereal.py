@@ -1,0 +1,18 @@
+import pandas as pd 
+pd.options.display.max_rows = 9999
+pd.options.display.max_columns = 9999
+df = pd.read_csv('cereal.csv')
+df = dict(zip(df.name, df.sugars))
+finished = False
+while finished == False:
+    cereal1 = input("Enter a cereal: ")
+    cereal2 = input("Enter a cereal: ")
+    cereal1_sugar = df.get(cereal1)
+    cereal2_sugar = df.get(cereal2)
+    print(f"{cereal1} has {cereal1_sugar} grams of sugar. {cereal2} has {cereal2_sugar} grams of sugar.")
+    if cereal1_sugar > cereal2_sugar:
+        print(f"{cereal2} has less sugar than {cereal1}")
+    if cereal1_sugar < cereal2_sugar:
+        print(f"{cereal2} has more sugar than {cereal1}")
+    if cereal1_sugar == cereal2_sugar:
+        print(f"{cereal2} has same amount as {cereal1}")
