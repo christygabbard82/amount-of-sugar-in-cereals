@@ -60,4 +60,4 @@ while finished == False: #while finished = false, the while loop will continue t
 
     choice = input("Do you want to make another choose? ")
     if choice.lower != "yes":   
-        finish = True 
+        finished = True 
