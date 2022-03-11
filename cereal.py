@@ -4,7 +4,7 @@ import pandas as pd
 pd.options.display.max_rows = 9999
 pd.options.display.max_columns = 9999
 df = pd.read_csv('cereal.csv')
-df = dict(zip(df.name, df.sugars, df.fat))
+df = dict(zip(df.name, df.sugars))
 df = fat
 finished = False
 while finished == False: #while finished = false, the while loop will continue to run
