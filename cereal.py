@@ -58,6 +58,6 @@ while finished == False: #while finished = false, the while loop will continue t
         plt.bar(x,y)
         plt.show()
 
-    choice = input("Do you want to make another choose? ")
-    if choice.lower != "yes":   
+    choice.lower = input("Do you want to make another choose? ")
+    if choice.lower() != "yes":   
         finished = True 
