@@ -1,3 +1,5 @@
+
+
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd 
@@ -6,10 +8,17 @@ pd.options.display.max_columns = 9999
 df = pd.read_csv('cereal.csv')
 
 finished = False
-while finished == False: #while finished = false, the while loop will continue to run
+while finished == False: 
     cereal1 = input("Enter a cereal: ")
     cereal2 = input("Enter a cereal: ")
-    option = input("which nutrition fact would you like view: Calories, sugar, or fats?")
+    cereal1 = cereal1.title()
+    cereal2 = cereal2.title()
+    print(cereal1)
+    option = input("which nutrition fact would you like to view: Calories, sugar, or fats?")
+    option = option.lower()
+    while option != "calories" and option != "sugar" and option != "fats":
+        option = input("Please type: 'calories', 'sugar' or 'fats': ")
+    
     if option == "sugar":
         df = dict(zip(df.name, df.sugars))
         cereal1_sugar = df.get(cereal1)
@@ -26,7 +35,7 @@ while finished == False: #while finished = false, the while loop will continue t
         plt.bar(x,y)
         plt.show()
 
-    if option == "fats":
+    elif option == "fats":
         df = dict(zip(df.name, df.fat))
         cereal1_fats = df.get(cereal1)
         cereal2_fats = df.get(cereal2)
@@ -42,7 +51,8 @@ while finished == False: #while finished = false, the while loop will continue t
         plt.bar(x,y)
         plt.show()
 
-    if option == "calories":
+    elif option.lower() == "calories":
+        print(option)
         df = dict(zip(df.name, df.calories))
         cereal1_calories = df.get(cereal1)
         cereal2_calories = df.get(cereal2)
@@ -57,7 +67,8 @@ while finished == False: #while finished = false, the while loop will continue t
         y = np.array([cereal1_calories, cereal2_calories])
         plt.bar(x,y)
         plt.show()
-
-    choice = input("Do you want to make another choose? ")
-    if choice.lower() != "yes":   
+        
+    choice = input("Do you want to make another choice? ")
+    choice = choice.lower()
+    if choice != "yes" and choice != 'y':
         finished = True 
